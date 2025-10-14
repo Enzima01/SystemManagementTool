@@ -16,10 +16,33 @@ Ambas as versões permitem o **monitoramento do sistema**, o **controle de proce
 
 ## 🧠 Tecnologias utilizadas
 - **Java 17+**
-- **Biblioteca OSHI** (para acesso às informações do sistema)
+- **Biblioteca OSHI**
 - **Java Swing**
 - Compatível com **Windows** e **Linux**
 
 ##
-Projeto desenvolvido por **Enzo Henrique Favaro**
+Desenvolvido por **Enzo Henrique Favaro**
 ##
+
+## 🇺🇸
+The **System Management Tool** is a project developed to provide a **cross-platform system administration utility** written in **Java**, compatible with **Windows** and **Linux**.
+
+It includes **two versions**:
+- **CLI Mode** → Command-line interface  
+- **GUI Mode** → Graphical user interface (Swing)
+
+## 🧰 Main Functionalities
+- **System monitoring**: CPU, RAM and hardware information.
+- **Process control**: listing and closing of active processes.
+- **User management**: creation, removal and listing of system users.
+
+## 🧠 Technologies
+- **Java 17+**
+- **OSHI Library**
+- **Java Swing**
+- Compatible with **Windows** e **Linux**
+
+##
+Developed by **Enzo Henrique Favaro**
+##
+
