@@ -17,7 +17,7 @@ import screens.ProcessControlScreen;
 import screens.SystemMonitorScreen;
 import screens.UserManagerScreen;
 
-public class MainScreenGUI {
+public class MainScreen {
 
 	private JFrame frmFerramentaDeAdministrao;
 
@@ -26,7 +26,7 @@ public class MainScreenGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainScreenGUI window = new MainScreenGUI();
+					MainScreen window = new MainScreen();
 					window.frmFerramentaDeAdministrao.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class MainScreenGUI {
 	}
 
 	
-	public MainScreenGUI() {
+	public MainScreen() {
 		initialize();
 	}
 
@@ -44,7 +44,7 @@ public class MainScreenGUI {
 	private void initialize() {
 		frmFerramentaDeAdministrao = new JFrame();
 		frmFerramentaDeAdministrao
-				.setIconImage(Toolkit.getDefaultToolkit().getImage(MainScreenGUI.class.getResource("/images/gear.png")));
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(MainScreen.class.getResource("/images/gear.png")));
 		frmFerramentaDeAdministrao.getContentPane().setBackground(Color.BLACK);
 		frmFerramentaDeAdministrao.setTitle("Ferramenta de Administração do Sistema | Enzima01");
 		frmFerramentaDeAdministrao.setBounds(100, 100, 630, 398);
@@ -62,7 +62,7 @@ public class MainScreenGUI {
 
 		JButton btnNewButton = new JButton("Monitorar Processamento");
 		btnNewButton.setMnemonic('M');
-		btnNewButton.setIcon(new ImageIcon(MainScreenGUI.class.getResource("/images/hardware.png")));
+		btnNewButton.setIcon(new ImageIcon(MainScreen.class.getResource("/images/hardware.png")));
 		btnNewButton.setToolTipText("");
 		btnNewButton.setForeground(Color.GREEN);
 		btnNewButton.setBackground(Color.BLACK);
@@ -78,7 +78,7 @@ public class MainScreenGUI {
 
 		JButton btnControlarProcessos = new JButton("Controlar Processos");
 		btnControlarProcessos.setMnemonic('C');
-		btnControlarProcessos.setIcon(new ImageIcon(MainScreenGUI.class.getResource("/images/pc.png")));
+		btnControlarProcessos.setIcon(new ImageIcon(MainScreen.class.getResource("/images/pc.png")));
 		btnControlarProcessos.setForeground(Color.GREEN);
 		btnControlarProcessos.setBackground(Color.BLACK);
 		btnControlarProcessos.addActionListener(new ActionListener() {
@@ -93,7 +93,7 @@ public class MainScreenGUI {
 
 		JButton btnGerenciarUsurios = new JButton("Gerenciar Usuários");
 		btnGerenciarUsurios.setMnemonic('G');
-		btnGerenciarUsurios.setIcon(new ImageIcon(MainScreenGUI.class.getResource("/images/user.png")));
+		btnGerenciarUsurios.setIcon(new ImageIcon(MainScreen.class.getResource("/images/user.png")));
 		btnGerenciarUsurios.setBackground(Color.BLACK);
 		btnGerenciarUsurios.setForeground(Color.GREEN);
 		btnGerenciarUsurios.addActionListener(new ActionListener() {
@@ -114,7 +114,7 @@ public class MainScreenGUI {
 			}
 		});
 		btnSobre.setMnemonic('S');
-		btnSobre.setIcon(new ImageIcon(MainScreenGUI.class.getResource("/images/info.png")));
+		btnSobre.setIcon(new ImageIcon(MainScreen.class.getResource("/images/info.png")));
 		btnSobre.setBackground(Color.BLACK);
 		btnSobre.setForeground(Color.GREEN);
 		btnSobre.setFont(new Font("Consolas", Font.BOLD, 16));
@@ -122,7 +122,7 @@ public class MainScreenGUI {
 		frmFerramentaDeAdministrao.getContentPane().add(btnSobre);
 
 		JLabel lblNewLabel = new JLabel("Made by Enzima01");
-		lblNewLabel.setIcon(new ImageIcon(MainScreenGUI.class.getResource("/images/01_16x16.png")));
+		lblNewLabel.setIcon(new ImageIcon(MainScreen.class.getResource("/images/01_16x16.png")));
 		lblNewLabel.setFont(new Font("Consolas", Font.BOLD, 14));
 		lblNewLabel.setForeground(Color.GREEN);
 		lblNewLabel.setBounds(238, 327, 208, 31);
