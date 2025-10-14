@@ -9,7 +9,7 @@ O projeto possui **duas versões**:
 
 Ambas as versões permitem o **monitoramento do sistema**, o **controle de processos** e o **gerenciamento de usuários**.
 
-## ⚙️ Funcionalidades principais
+## 🧰 Funcionalidades principais
 - **Monitoramento do Sistema**: uso de CPU, memória RAM e informações do hardware.  
 - **Controle de Processos**: listagem e encerramento de processos ativos.  
 - **Gerenciamento de Usuários**: criação, remoção e listagem de usuários do sistema.  
