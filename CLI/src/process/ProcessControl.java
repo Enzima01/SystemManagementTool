@@ -53,10 +53,11 @@ public class ProcessControl {
 		Process processo = Runtime.getRuntime().exec(comando);
 		processo.waitFor();
 
-		System.out.println("Processo " + alvo + " encerrado (se existia).");
+		System.out.println("Processo " + alvo + " encerrado.");
 	}
 
 	private static boolean isWindows() {
 		return System.getProperty("os.name").toLowerCase().contains("win");
 	}
+
 }
