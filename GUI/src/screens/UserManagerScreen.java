@@ -1,14 +1,13 @@
 package screens;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,18 +19,12 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import oshi.SystemInfo;
-import oshi.software.os.OSSession;
-import oshi.software.os.OperatingSystem;
-import java.awt.Color;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 
 public class UserManagerScreen extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextArea textAreaUsuarios;
-	private OperatingSystem os;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
@@ -63,7 +56,7 @@ public class UserManagerScreen extends JFrame {
 		lblTitulo.setForeground(Color.GREEN);
 		lblTitulo.setFont(new Font("Consolas", Font.BOLD, 20));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setBounds(143, 11, 350, 38);
+		lblTitulo.setBounds(53, 11, 527, 38);
 		contentPane.add(lblTitulo);
 
 		JButton btnListar = new JButton("Listar Usuários");
@@ -103,7 +96,7 @@ public class UserManagerScreen extends JFrame {
 		scrollPane.setViewportView(textAreaUsuarios);
 
 		SystemInfo si = new SystemInfo();
-		os = si.getOperatingSystem();
+		si.getOperatingSystem();
 
 		btnListar.addActionListener(e -> listarUsuarios());
 		btnCriar.addActionListener(e -> criarUsuario());
@@ -112,25 +105,30 @@ public class UserManagerScreen extends JFrame {
 
 	// Lista usuários
 	private void listarUsuarios() {
-		List<OSSession> sessoes = os.getSessions();
-
-		if (sessoes.isEmpty()) {
-			textAreaUsuarios.setText("Nenhum usuário ativo encontrado.");
-			return;
-		}
-
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
-
+		boolean isWindows = System.getProperty("os.name").toLowerCase().contains("win");
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("%-20s %-15s %-25s%n", "Usuário", "Host", "Login em"));
-		sb.append("---------------------------------------------------------------\n");
 
-		for (OSSession s : sessoes) {
-			String loginTime = fmt.format(Instant.ofEpochSecond(s.getLoginTime()));
-			sb.append(String.format("%-20s %-15s %-25s%n", s.getUserName(), s.getHost(), loginTime));
+		try {
+			ProcessBuilder builder;
+			if (isWindows) {
+				builder = new ProcessBuilder("cmd.exe", "/c", "net user");
+			} else {
+				builder = new ProcessBuilder("bash", "-c", "cut -d: -f1 /etc/passwd");
+			}
+
+			Process processo = builder.start();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(processo.getInputStream()));
+			String line;
+			sb.append("Usuários do sistema:\n\n");
+			while ((line = reader.readLine()) != null) {
+				sb.append(line).append("\n");
+			}
+
+			textAreaUsuarios.setText(sb.toString());
+
+		} catch (Exception e) {
+			textAreaUsuarios.setText("Erro ao listar usuários: " + e.getMessage());
 		}
-
-		textAreaUsuarios.setText(sb.toString());
 	}
 
 	// Criar usuário no sistema
