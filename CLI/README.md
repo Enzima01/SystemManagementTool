@@ -1,4 +1,4 @@
-# 🧰 System Management Tool - CLI Mode
+# ⚙️</> System Management Tool - CLI Mode
 
 ## 🇧🇷
 O **System Management Tool (CLI Mode)** é a versão em **modo texto** do projeto, Ela permite realizar operações administrativas diretamente pelo **terminal**.
