@@ -61,26 +61,26 @@ public class SystemMonitorScreen extends JFrame {
 		lblTitulo.setIcon(new ImageIcon(SystemMonitorScreen.class.getResource("/images/hardware.png")));
 		lblTitulo.setForeground(Color.GREEN);
 		lblTitulo.setFont(new Font("Consolas", Font.BOLD, 18));
-		lblTitulo.setBounds(100, 11, 300, 30);
+		lblTitulo.setBounds(10, 11, 482, 30);
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblTitulo);
 
 		lblCpuUsage = new JLabel("CPU: --- %");
 		lblCpuUsage.setForeground(Color.GREEN);
 		lblCpuUsage.setFont(new Font("Consolas", Font.BOLD, 17));
-		lblCpuUsage.setBounds(100, 79, 300, 25);
+		lblCpuUsage.setBounds(100, 79, 376, 25);
 		contentPane.add(lblCpuUsage);
 
 		lblRamUsage = new JLabel("RAM: --- %");
 		lblRamUsage.setForeground(Color.GREEN);
 		lblRamUsage.setFont(new Font("Consolas", Font.BOLD, 17));
-		lblRamUsage.setBounds(100, 109, 344, 25);
+		lblRamUsage.setBounds(100, 109, 376, 25);
 		contentPane.add(lblRamUsage);
 
 		lblUptime = new JLabel("Uptime: ---");
 		lblUptime.setForeground(Color.GREEN);
 		lblUptime.setFont(new Font("Consolas", Font.BOLD, 17));
-		lblUptime.setBounds(100, 139, 300, 25);
+		lblUptime.setBounds(100, 139, 376, 25);
 		contentPane.add(lblUptime);
 
 		// Inicializa OSHI
@@ -89,13 +89,13 @@ public class SystemMonitorScreen extends JFrame {
 		memory = systemInfo.getHardware().getMemory();
 		os = systemInfo.getOperatingSystem();
 
-		// Atualiza as informações a cada segundo
+		// Atualizar as informações a cada segundo
 		Timer timer = new Timer(1000, e -> atualizarDados());
 		timer.start();
 	}
 
 	private void atualizarDados() {
-		
+
 		try {
 			// CPU
 			long[] prevTicks = cpu.getSystemCpuLoadTicks();
