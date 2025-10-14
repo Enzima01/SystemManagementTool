@@ -17,9 +17,7 @@ public class AboutScreen extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,9 +31,7 @@ public class AboutScreen extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public AboutScreen() {
 		setTitle("Sobre");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(AboutScreen.class.getResource("/images/gear.png")));
@@ -53,7 +49,7 @@ public class AboutScreen extends JFrame {
 		JLabel lblNewLabel = new JLabel("Sobre");
 		lblNewLabel.setIcon(new ImageIcon(AboutScreen.class.getResource("/images/info32x32.png")));
 		lblNewLabel.setForeground(Color.GREEN);
-		lblNewLabel.setBounds(187, 27, 98, 30);
+		lblNewLabel.setBounds(187, 27, 289, 30);
 		lblNewLabel.setFont(new Font("Consolas", Font.BOLD, 20));
 		contentPane.add(lblNewLabel);
 
@@ -73,7 +69,7 @@ public class AboutScreen extends JFrame {
 		txtpnDesenvolvidaPorEnzo_1.setFont(new Font("Consolas", Font.BOLD, 15));
 		txtpnDesenvolvidaPorEnzo_1.setText(
 				"Desenvolvida por Enzo Henrique Favaro para um projeto da faculdade, o SMT é compatível com Windows e Linux.");
-		txtpnDesenvolvidaPorEnzo_1.setBounds(20, 142, 456, 50);
+		txtpnDesenvolvidaPorEnzo_1.setBounds(20, 142, 456, 90);
 		contentPane.add(txtpnDesenvolvidaPorEnzo_1);
 	}
 }
