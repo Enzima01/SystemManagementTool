@@ -1,11 +1,14 @@
 package screens;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,9 +22,6 @@ import javax.swing.border.EmptyBorder;
 import oshi.SystemInfo;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem;
-import java.awt.Color;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 
 public class ProcessControlScreen extends JFrame {
 
@@ -98,9 +98,14 @@ public class ProcessControlScreen extends JFrame {
 	}
 
 	private void listarProcessos() {
-		List<OSProcess> processos = os.getProcesses(null);
+		List<OSProcess> processos = os.getProcesses();
 
-		// Ordena por uso de CPU (maior primeiro)
+		if (processos == null || processos.isEmpty()) {
+			textAreaProcessos.setText("Nenhum processo encontrado.\nTente executar como superusuário (sudo).");
+			return;
+		}
+
+		// Ordenar manualmente por uso de CPU
 		List<OSProcess> top = processos.stream()
 				.sorted(Comparator.comparingDouble(OSProcess::getProcessCpuLoadCumulative).reversed()).limit(20)
 				.collect(Collectors.toList());
@@ -114,8 +119,7 @@ public class ProcessControlScreen extends JFrame {
 	}
 
 	private void encerrarProcesso() {
-		String input = JOptionPane.showInputDialog(this, "Digite o nome ou o PID do processo:", "Encerrar Processo",
-				JOptionPane.QUESTION_MESSAGE);
+		String input = JOptionPane.showInputDialog(this, "Digite o nome ou o PID do processo:", "Encerrar Processo", JOptionPane.QUESTION_MESSAGE);
 
 		if (input == null || input.isBlank())
 			return;
@@ -139,23 +143,25 @@ public class ProcessControlScreen extends JFrame {
 		}
 
 		if (sucesso)
-			JOptionPane.showMessageDialog(this, "Processo encerrado com sucesso!", "Sucesso",
-					JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Processo encerrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 		else
 			JOptionPane.showMessageDialog(this, "Falha ao encerrar processo.", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
 	private boolean encerrarPorPID(long pid) {
 		try {
-			ProcessHandle handle = ProcessHandle.of(pid).orElse(null);
-			if (handle != null) {
-				handle.destroy();
-				Thread.sleep(300);
-				return !handle.isAlive();
+			String osName = System.getProperty("os.name").toLowerCase();
+			Process proc;
+			if (osName.contains("win")) {
+				proc = Runtime.getRuntime().exec("taskkill /PID " + pid + " /F");
+			} else {
+				proc = Runtime.getRuntime().exec("kill -9 " + pid);
 			}
+			proc.waitFor();
+			return proc.exitValue() == 0;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 }
