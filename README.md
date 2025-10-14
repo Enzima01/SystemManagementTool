@@ -20,4 +20,6 @@ Ambas as versões permitem o **monitoramento do sistema**, o **controle de proce
 - **Java Swing**
 - Compatível com **Windows** e **Linux**
 
-- Projeto desenvolvido por **Enzo Henrique Favaro**
+##
+Projeto desenvolvido por **Enzo Henrique Favaro**
+##
