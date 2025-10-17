@@ -67,9 +67,11 @@ public class AboutScreen extends JFrame {
 		txtpnDesenvolvidaPorEnzo_1.setForeground(Color.GREEN);
 		txtpnDesenvolvidaPorEnzo_1.setBackground(Color.BLACK);
 		txtpnDesenvolvidaPorEnzo_1.setFont(new Font("Consolas", Font.BOLD, 15));
+		txtpnDesenvolvidaPorEnzo_1.setEditable(false);
 		txtpnDesenvolvidaPorEnzo_1.setText(
 				"Desenvolvida por Enzo Henrique Favaro para um projeto da faculdade, o SMT é compatível com Windows e Linux.");
 		txtpnDesenvolvidaPorEnzo_1.setBounds(20, 142, 456, 90);
 		contentPane.add(txtpnDesenvolvidaPorEnzo_1);
 	}
 }
+
