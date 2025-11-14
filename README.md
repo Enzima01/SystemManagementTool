@@ -13,7 +13,7 @@ Ambas as versões permitem o **monitoramento do sistema**, o **controle de proce
 - **Monitoramento do Sistema**: uso de CPU, memória RAM e informações do hardware.  
 - **Controle de Processos**: listagem e encerramento de processos ativos.  
 - **Gerenciamento de Usuários**: criação, remoção e listagem de usuários do sistema.
-- **Informação do Dispositivo**: exibição do sistema operacional, placa-mãe, CPU, GPU, memória RAM e unidades de armazenamento. (v6.0)
+- **Informação do Hardware**: exibição do sistema operacional, placa-mãe, CPU, GPU, memória RAM e unidades de armazenamento. (v6.0)
 
 ## 🧠 Tecnologias utilizadas
 - **Java 17+**
@@ -36,7 +36,7 @@ It includes **two versions**:
 - **System monitoring**: CPU, RAM and hardware information.
 - **Process control**: listing and closing of active processes.
 - **User management**: creation, removal and listing of system users.
-- **Device Information**: display of operating system, motherboard, CPU, GPU, RAM, and storage devices. (v6.0)
+- **Hardware Information**: display of operating system, motherboard, CPU, GPU, RAM, and storage devices. (v6.0)
 
 ## 🧠 Technologies
 - **Java 17+**
