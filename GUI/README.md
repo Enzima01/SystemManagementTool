@@ -5,6 +5,3 @@ O **System Management Tool (GUI)** é a versão com **interface gráfica** do pr
 
 ## 🇺🇸
 The **System Management Tool (GUI)** is the **graphical interface** version of the project. It allows you to perform administrative operations through **interactive windows**.
-
-## Run Application
-java -jar SMT_GUI.jar
