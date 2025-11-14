@@ -7,7 +7,7 @@ O projeto possui **duas versões**:
 - **CLI Mode** → Interface de linha de comando  
 - **GUI Mode** → Interface gráfica (Swing)
 
-Ambas as versões permitem o **monitoramento do sistema**, o **controle de processos** e o **gerenciamento de usuários**.
+Ambas as versões permitem o **monitoramento do sistema**, o **controle de processos**, o **gerenciamento de usuários** e a **visualização de informações de hardware**.
 
 ## 🧰 Funcionalidades principais
 - **Monitoramento do Sistema**: uso de CPU, memória RAM e informações do hardware.  
@@ -31,6 +31,8 @@ The **System Management Tool** is a project developed to provide a **cross-platf
 It includes **two versions**:
 - **CLI Mode** → Command-line interface  
 - **GUI Mode** → Graphical user interface (Swing)
+
+Both versions allow **system monitoring**, **process control**, **user management**, and **hardware information visualization**.
 
 ## 🧰 Main Functionalities
 - **System monitoring**: CPU, RAM and hardware information.
