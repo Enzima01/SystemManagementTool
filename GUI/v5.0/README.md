@@ -1,12 +1,18 @@
-# ⚙️🖥️ System Management Tool - GUI (Graphical User Interface)
-## version 5.0
+# SMT Version 5.0
 
 ## 🇧🇷
-O **System Management Tool (GUI)** é a versão com **interface gráfica** do projeto, Ela permite realizar operações administrativas através de **janelas interativas**.
+## Recursos
+- Monitoramento do Sistema
+- Controle de Processos
+- Gerenciamento de Usuários
 
 ## 🇺🇸
-The **System Management Tool (GUI)** is the **graphical interface** version of the project. It allows you to perform administrative operations through **interactive windows**.
+## Features
+- System monitoring
+- Process control
+- User management
 
 ## Run Application
 java -jar SMT_GUI.jar
+
 
