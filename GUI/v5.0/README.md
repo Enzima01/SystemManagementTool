@@ -13,6 +13,7 @@
 - User management
 
 ## Run Application
-java -jar SMT_GUI.jar
+java -jar SMTv5_GUI.jar
+
 
 
