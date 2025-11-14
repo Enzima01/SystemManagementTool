@@ -15,7 +15,8 @@
 - Hardware Information
 
 ## Run Application
-java -jar SMTv5_GUI.jar
+java -jar SMTv6_GUI.jar
+
 
 
 
