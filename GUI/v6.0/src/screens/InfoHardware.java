@@ -75,13 +75,10 @@ public class InfoHardware extends JFrame {
 		scrollPane.setBorder(null);
 		contentPane.add(scrollPane);
 
-		// Mostra as informações
+		// info
 		textArea.setText(getSystemInfo());
 	}
 
-	/**
-	 * Coleta as informações do sistema usando OSHI e comandos nativos (fallback).
-	 */
 	private String getSystemInfo() {
 		StringBuilder sb = new StringBuilder();
 		SystemInfo si = new SystemInfo();
@@ -99,8 +96,7 @@ public class InfoHardware extends JFrame {
 		String modelo = fixValue(system.getBaseboard().getModel());
 		String versao = fixValue(system.getBaseboard().getVersion());
 		String serial = fixValue(system.getBaseboard().getSerialNumber());
-
-		// Se o OSHI falhou, tenta via comando do sistema
+		
 		if (modelo.equals("Não identificado") || serial.equals("Não identificado")) {
 			String[] boardInfo = getMotherboardInfoFromSystem();
 			if (boardInfo != null) {
@@ -129,14 +125,14 @@ public class InfoHardware extends JFrame {
 		sb.append("=== MEMÓRIA RAM ===\n");
 		sb.append(String.format("Total: %.2f GB%n%n", memory.getTotal() / (1024.0 * 1024 * 1024)));
 
-		// DISCOS (HDs / SSDs)
+		// DISCOS
 		sb.append("=== UNIDADES DE ARMAZENAMENTO ===\n");
 		si.getHardware().getDiskStores().forEach(disk -> {
 			sb.append("Nome: ").append(disk.getName()).append("\n");
 			sb.append("Modelo: ").append(fixValue(disk.getModel())).append("\n");
 			sb.append(String.format("Tamanho: %.2f GB%n", disk.getSize() / (1024.0 * 1024 * 1024)));
 
-			// Heurística para identificar SSD x HDD
+			// SSD x HDD
 			String modeloDisk = disk.getModel().toLowerCase();
 			if (modeloDisk.contains("ssd") || modeloDisk.contains("nvme")) {
 				sb.append("Tipo: SSD\n");
@@ -147,7 +143,7 @@ public class InfoHardware extends JFrame {
 				sb.append("Tipo: Não identificado\n");
 			}
 
-			// Interface (estimativa)
+			// Interface
 			if (modeloDisk.contains("nvme")) {
 				sb.append("Interface: NVMe\n");
 			} else if (modeloDisk.contains("usb")) {
@@ -184,20 +180,17 @@ public class InfoHardware extends JFrame {
 		return value;
 	}
 
-	/**
-	 * Executa comandos nativos do sistema para obter informações da placa-mãe.
-	 * Funciona em Windows e Linux.
+	/*
+	 * comandos nativos do sistema para obter informações da placa-mãe
 	 */
 	private String[] getMotherboardInfoFromSystem() {
 		String os = System.getProperty("os.name").toLowerCase();
 		try {
 			Process process;
 			if (os.contains("win")) {
-				// Windows
 				process = Runtime.getRuntime().exec(new String[] { "cmd.exe", "/c",
 						"wmic baseboard get Manufacturer,Product,SerialNumber /format:list" });
 			} else {
-				// Linux
 				process = Runtime.getRuntime()
 						.exec(new String[] { "bash", "-c", "cat /sys/class/dmi/id/board_{vendor,name,serial}" });
 			}
@@ -224,3 +217,4 @@ public class InfoHardware extends JFrame {
 		}
 	}
 }
+
