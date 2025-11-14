@@ -5,17 +5,18 @@
 - Monitoramento do Sistema
 - Controle de Processos
 - Gerenciamento de Usuários
-- Informação do Hardware
+- Informação do Hardware (Novo!)
 
 ## 🇺🇸
 ## Features
 - System monitoring
 - Process control
 - User management
-- Hardware Information
+- Hardware Information (New!)
 
 ## Run Application
 java -jar SMTv6_GUI.jar
+
 
 
 
