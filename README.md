@@ -1,7 +1,7 @@
 # ⚙️ System Management Tool
 
 ## 🇧🇷
-O **System Management Tool** é um projeto desenvolvido com o objetivo de ser uma ferramenta de **administração de sistema multiplataforma**, feita em **Java**, e compatível com **Windows** e **Linux**.
+O **System Management Tool** é um projeto desenvolvido com o objetivo de ser uma ferramenta de **gerenciamento e administração de sistema multiplataforma**, feita em **Java**, e compatível com **Windows** e **Linux**.
 
 O projeto possui **duas versões**:
 - **CLI Mode** → Interface de linha de comando  
