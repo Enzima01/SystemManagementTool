@@ -52,7 +52,7 @@ public class MainScreenSMTv6 {
 		frmFerramentaDeAdministrao
 				.setIconImage(Toolkit.getDefaultToolkit().getImage(MainScreenSMTv6.class.getResource("/images/gear.png")));
 		frmFerramentaDeAdministrao.getContentPane().setBackground(Color.BLACK);
-		frmFerramentaDeAdministrao.setTitle("Ferramenta de Administração do Sistema | Enzima01");
+		frmFerramentaDeAdministrao.setTitle("Ferramenta de Gerenciamento do Sistema | Enzima01");
 		frmFerramentaDeAdministrao.setBounds(100, 100, 630, 398);
 		frmFerramentaDeAdministrao.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFerramentaDeAdministrao.getContentPane().setLayout(null);
@@ -60,7 +60,7 @@ public class MainScreenSMTv6 {
 		frmFerramentaDeAdministrao.setResizable(false);
 		frmFerramentaDeAdministrao.setLocationRelativeTo(null);
 
-		JLabel lblTitle = new JLabel("Ferramenta de Administração do Sistema");
+		JLabel lblTitle = new JLabel("Ferramenta de Gerenciamento do Sistema");
 		lblTitle.setForeground(Color.GREEN);
 		lblTitle.setFont(new Font("Consolas", Font.BOLD, 20));
 		lblTitle.setBounds(95, 39, 494, 31);
@@ -136,3 +136,4 @@ public class MainScreenSMTv6 {
 		frmFerramentaDeAdministrao.getContentPane().add(lblNewLabel);
 	}
 }
+
