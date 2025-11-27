@@ -23,8 +23,9 @@
 ## How to run the SMT .jar?
 1) Have **Java 17** (or higher) installed
 2) Download the SMT **.jar file**
-3) Open the **terminal** / *8command prompt** and navigate to the folder where the .jar is located (Example: cd Downloads)
+3) Open the **terminal** / **command prompt** and navigate to the folder where the .jar is located (Example: cd Downloads)
 4) Run the command: **java -jar SMTv6.jar**
+
 
 
 
