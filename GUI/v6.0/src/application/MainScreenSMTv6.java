@@ -66,7 +66,7 @@ public class MainScreenSMTv6 {
 		lblTitle.setBounds(95, 39, 494, 31);
 		frmFerramentaDeAdministrao.getContentPane().add(lblTitle);
 
-		JButton btnNewButton = new JButton("Monitorar Processamento");
+		JButton btnNewButton = new JButton("Monitoramento");
 		btnNewButton.setMnemonic('M');
 		btnNewButton.setIcon(new ImageIcon(MainScreenSMTv6.class.getResource("/images/hardware.png")));
 		btnNewButton.setToolTipText("");
@@ -136,4 +136,5 @@ public class MainScreenSMTv6 {
 		frmFerramentaDeAdministrao.getContentPane().add(lblNewLabel);
 	}
 }
+
 
